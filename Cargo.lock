@@ -12,29 +12,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "aoc2020-day01"
-version = "0.1.0"
-
-[[package]]
-name = "aoc2020-day02"
-version = "0.1.0"
-dependencies = [
- "regex",
-]
-
-[[package]]
-name = "aoc2020-day03"
-version = "0.1.0"
-
-[[package]]
-name = "aoc2020-day04"
-version = "0.1.0"
-dependencies = [
- "regex",
-]
-
-[[package]]
-name = "aoc2020-day05"
+name = "aoc2020"
 version = "0.1.0"
 dependencies = [
  "regex",

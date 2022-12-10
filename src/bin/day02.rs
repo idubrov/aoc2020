@@ -26,6 +26,6 @@ fn solve(input: &str) {
 }
 
 fn main() {
-  solve("day02/src/test.txt");
-  solve("day02/src/input.txt");
+  solve("src/bin/day02/test.txt");
+  solve("src/bin/day02/input.txt");
 }

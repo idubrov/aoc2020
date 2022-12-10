@@ -70,6 +70,6 @@ fn solve(input: &str) {
 }
 
 fn main() {
-  solve("day04/src/test.txt");
-  solve("day04/src/input.txt");
+  solve("src/bin/day04/test.txt");
+  solve("src/bin/day04/input.txt");
 }
