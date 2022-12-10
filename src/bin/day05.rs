@@ -12,7 +12,8 @@ fn solve(input: &str) {
     .collect::<Vec<_>>();
   seats.sort();
 
-  let seat = seats.windows(2)
+  let seat = seats
+    .windows(2)
     .filter(|s| s[0] + 2 == s[1])
     .map(|s| s[0] + 1)
     .next()

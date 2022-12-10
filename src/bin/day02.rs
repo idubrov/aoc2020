@@ -10,8 +10,7 @@ fn is_valid(pwd: &str) -> (bool, bool) {
   let count = text.iter().filter(|c| ch == **c).count();
   (
     count >= min && count <= max,
-    (text[min - 1] == ch && text[max - 1] != ch) ||
-      (text[min - 1] != ch && text[max - 1] == ch)
+    (text[min - 1] == ch && text[max - 1] != ch) || (text[min - 1] != ch && text[max - 1] == ch),
   )
 }
 

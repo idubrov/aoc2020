@@ -6,7 +6,6 @@ fn is_valid(pass: &HashMap<String, String>) -> bool {
   KEYS_1.iter().all(|k| pass.contains_key(*k))
 }
 
-
 fn is_valid_2(pass: &HashMap<String, String>) -> bool {
   let color: regex::Regex = regex::Regex::new("^#[0-9a-f]{6}$").unwrap();
   let pid: regex::Regex = regex::Regex::new("^[0-9]{9}$").unwrap();
@@ -29,13 +28,16 @@ fn is_valid_2(pass: &HashMap<String, String>) -> bool {
     false
   };
 
-  byr >= 1920 && byr <= 2002 &&
-  iyr >= 2010 && iyr <= 2020 &&
-  eyr >= 2020 && eyr <= 2030 &&
-  hgt_valid &&
-  color.is_match(&pass["hcl"]) &&
-  ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"].contains(&pass["ecl"].as_str()) &&
-  pid.is_match(&pass["pid"])
+  byr >= 1920
+    && byr <= 2002
+    && iyr >= 2010
+    && iyr <= 2020
+    && eyr >= 2020
+    && eyr <= 2030
+    && hgt_valid
+    && color.is_match(&pass["hcl"])
+    && ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"].contains(&pass["ecl"].as_str())
+    && pid.is_match(&pass["pid"])
 }
 
 fn solve(input: &str) {
@@ -44,27 +46,19 @@ fn solve(input: &str) {
     .split("\n\n")
     .map(|pass| {
       let mut map = HashMap::new();
-      pass.lines()
-        .flat_map(|line| line.split(" "))
-        .for_each(|val| {
-          let (key, value) = val.split_once(":").unwrap();
-          map.insert(key.to_owned(), value.to_owned());
-        });
+      pass.lines().flat_map(|line| line.split(" ")).for_each(|val| {
+        let (key, value) = val.split_once(":").unwrap();
+        map.insert(key.to_owned(), value.to_owned());
+      });
       map
     })
     .collect::<Vec<_>>();
 
-  let first = passports
-    .iter()
-    .filter(|x| is_valid(*x))
-    .count();
+  let first = passports.iter().filter(|x| is_valid(*x)).count();
 
   println!("{} (first): {}", input, first);
 
-  let second = passports
-    .iter()
-    .filter(|x| is_valid_2(*x))
-    .count();
+  let second = passports.iter().filter(|x| is_valid_2(*x)).count();
 
   println!("{} (second): {}", input, second);
 }

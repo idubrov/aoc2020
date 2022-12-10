@@ -1,4 +1,3 @@
-
 fn solve(input: &str) {
   let expenses = std::fs::read_to_string(input)
     .unwrap()

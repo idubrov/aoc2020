@@ -27,7 +27,7 @@ impl FromStr for OpKind {
       "nop" => OpKind::Nop,
       "acc" => OpKind::Acc,
       "jmp" => OpKind::Jmp,
-      _ => return Err(InvalidOp)
+      _ => return Err(InvalidOp),
     })
   }
 }
